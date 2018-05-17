@@ -60,13 +60,24 @@ passport.serializeUser((id, done) => {
 
 passport.deserializeUser((id, done) => {
     // whatever we pass out, ends up on the req object as req.user
-    done(null, id)
+    app.get('db').find_session_user([id])
+    .then(user => {
+        done(null, user[0])
+    })
 })
 
 app.get('/login', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000',
+    successRedirect: 'http://localhost:3000/#/private',
     failureRedirect: '/login'
 }))
+
+app.get('/auth/me', function(req,res) {
+    if(req.user) {
+    res.status(200).send(req.user)
+    } else {
+        res.status(401).send('nice try suckkaa')
+    }
+})
 
 app.listen(SERVER_PORT, () => { console.log(`Port ${SERVER_PORT} now listening`) })

@@ -4,7 +4,7 @@ import '../Login/Login.css'
 
 export default function Login() {
     return (
-        <div>
+        <div className ="App">
             <img src={logo} alt='mainLogo' />
             <a href={process.env.REACT_APP_LOGIN}>
                 <button>Login</button>
