@@ -1,5 +1,5 @@
 {
-  "name": "fullstack-app",
+  "name": "full-stack",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,9 @@
     "passport": "^0.4.0",
     "passport-auth0": "^0.6.1",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
     "react-scripts": "1.1.4"
   },
   "scripts": {
